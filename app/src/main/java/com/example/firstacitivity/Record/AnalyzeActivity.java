@@ -1,4 +1,4 @@
-package com.example.firstacitivity.Activity;
+package com.example.firstacitivity.Record;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,14 +25,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity3 extends AppCompatActivity {
+public class AnalyzeActivity extends AppCompatActivity {
     private LineChart lineChart;
     private List<String> xValues;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_analyze);
 
         // 获取PieChart控件
         PieChart pieChart = findViewById(R.id.pieChart);
@@ -90,7 +90,7 @@ public class MainActivity3 extends AppCompatActivity {
         goHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHistory = new Intent(MainActivity3.this, MainActivity2.class);
+                Intent goHistory = new Intent(AnalyzeActivity.this, RecordListActivity.class);
                 startActivity(goHistory);
             }
         });
@@ -99,7 +99,7 @@ public class MainActivity3 extends AppCompatActivity {
         goRecord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goRecord = new Intent(MainActivity3.this, MainActivity.class);
+                Intent goRecord = new Intent(AnalyzeActivity.this, RecordActivity.class);
                 startActivity(goRecord);
             }
         });

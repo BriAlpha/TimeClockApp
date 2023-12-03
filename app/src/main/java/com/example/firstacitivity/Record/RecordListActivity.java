@@ -1,4 +1,4 @@
-package com.example.firstacitivity.Activity;
+package com.example.firstacitivity.Record;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,11 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.firstacitivity.Adapter.RecordAdapter;
 import com.example.firstacitivity.Database.UserRecord;
@@ -18,14 +16,10 @@ import com.example.firstacitivity.R;
 
 import org.litepal.LitePal;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class MainActivity2 extends AppCompatActivity {
+public class RecordListActivity extends AppCompatActivity {
     private RecyclerView messageContainer;
     private RecordAdapter adapter;
     private List<UserRecord> dataList = new ArrayList<>();
@@ -33,7 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_record_list);
 
         messageContainer = (RecyclerView) findViewById(R.id.messageContainer);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -43,7 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goBack = new Intent(MainActivity2.this, MainActivity.class);
+                Intent goBack = new Intent(RecordListActivity.this, RecordActivity.class);
                 startActivity(goBack);
             }
         });
@@ -55,7 +49,7 @@ public class MainActivity2 extends AppCompatActivity {
         Analyze.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent Anlyze = new Intent(MainActivity2.this,MainActivity3.class);
+                Intent Anlyze = new Intent(RecordListActivity.this, AnalyzeActivity.class);
                 startActivity(Anlyze);
             }
         });

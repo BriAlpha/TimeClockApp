@@ -1,10 +1,9 @@
-package com.example.firstacitivity.Activity;
+package com.example.firstacitivity.Record;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,16 +13,11 @@ import android.widget.Toast;
 import com.example.firstacitivity.Database.UserRecord;
 import com.example.firstacitivity.R;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.TimeZone;
 
-public class MainActivity extends AppCompatActivity {
+public class RecordActivity extends AppCompatActivity {
 //    private static List<String> recordList = new ArrayList<>();
 //    private static Map<String,Double> lableTimeMap = new HashMap<>();
     private Calendar calendar;
@@ -33,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_record);
 
         //定义各个Container对象
         EditText textBoxAction = (EditText) findViewById(R.id.editTextActionBox);
@@ -71,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 userRecord.setDay(day);
 
                 userRecord.save();
-                Toast.makeText(MainActivity.this, "record successfully", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RecordActivity.this, "record successfully", Toast.LENGTH_SHORT).show();
                 textBoxAction.setText("");
                 textBoxDuration.setText("");
             }
@@ -82,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         detailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goToMainActivity2 = new Intent(MainActivity.this, MainActivity2.class);
+                Intent goToMainActivity2 = new Intent(RecordActivity.this, RecordListActivity.class);
                 startActivity(goToMainActivity2);
             }
         });
